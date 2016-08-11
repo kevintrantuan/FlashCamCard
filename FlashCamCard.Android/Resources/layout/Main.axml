@@ -38,22 +38,30 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/editDefinition" />
             <RelativeLayout
-                android:id="@+id/relativeLayout1"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/black">
+                android:layout_gravity="bottom">
+                <ImageButton
+                    android:src="@drawable/ic_camera_enhance_white_48dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/imgBtnCam" />
                 <Button
                     android:id="@+id/btnAddVoc"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
                     android:text="@string/add_voc"
-                    android:layout_alignParentLeft="true" />
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1" />
                 <Button
                     android:id="@+id/btnLearn"
-                    android:layout_width="75dp"
-                    android:layout_height="75dp"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
                     android:text="@string/learn"
-                    android:layout_alignParentRight="true" />
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
