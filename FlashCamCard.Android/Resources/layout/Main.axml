@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout1">
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:minWidth="25px"
             android:minHeight="25px"
             android:layout_width="match_parent"
@@ -19,14 +19,42 @@
             android:id="@+id/linearLayout2">
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/textVoc" />
-            <Button
-                android:text="Button"
+                android:id="@+id/textVoc"
+                android:text="Vocabulary" />
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnAddVoc" />
+                android:id="@+id/editVoc" />
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textVoc"
+                android:text="Definition" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editDefinition" />
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/black">
+                <Button
+                    android:id="@+id/btnAddVoc"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:text="@string/add_voc"
+                    android:layout_alignParentLeft="true" />
+                <Button
+                    android:id="@+id/btnLearn"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:text="@string/learn"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

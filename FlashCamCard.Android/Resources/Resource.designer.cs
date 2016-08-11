@@ -44,14 +44,26 @@ namespace FlashCamCard.Android
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050006
+			public const int btnAddVoc = 2131034118;
+			
+			// aapt resource value: 0x7f050007
+			public const int btnLearn = 2131034119;
+			
+			// aapt resource value: 0x7f050004
+			public const int editDefinition = 2131034116;
+			
 			// aapt resource value: 0x7f050003
-			public const int btnAddVoc = 2131034115;
+			public const int editVoc = 2131034115;
 			
 			// aapt resource value: 0x7f050000
 			public const int linearLayout1 = 2131034112;
 			
 			// aapt resource value: 0x7f050001
 			public const int linearLayout2 = 2131034113;
+			
+			// aapt resource value: 0x7f050005
+			public const int relativeLayout1 = 2131034117;
 			
 			// aapt resource value: 0x7f050002
 			public const int textVoc = 2131034114;
@@ -102,10 +114,13 @@ namespace FlashCamCard.Android
 		{
 			
 			// aapt resource value: 0x7f040000
-			public const int add = 2130968576;
+			public const int add_voc = 2130968576;
+			
+			// aapt resource value: 0x7f040002
+			public const int app_name = 2130968578;
 			
 			// aapt resource value: 0x7f040001
-			public const int app_name = 2130968577;
+			public const int learn = 2130968577;
 			
 			static String()
 			{
