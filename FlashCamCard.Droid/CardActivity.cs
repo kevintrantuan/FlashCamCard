@@ -16,12 +16,16 @@ namespace FlashCamCard.Droid
 	[Activity(Label = "CardActivity")]
 	public class CardActivity : Activity
 	{
+		TextView vocTextView;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			// Create your application here
 			SetContentView(Resource.Layout.Card);
+			vocTextView = FindViewById<TextView>(Resource.Id.textVoc);
+			string strVoc = Intent.Extras.GetString("card");
+			vocTextView.Text = strVoc;
 		}
 	}
 }
