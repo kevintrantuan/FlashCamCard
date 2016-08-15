@@ -60,9 +60,12 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\drawable\ic_camera_enhance_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_camera_enhance_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_camera_enhance_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_camera_enhance_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_camera_enhance_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_camera_enhance_white_48dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

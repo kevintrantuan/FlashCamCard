@@ -18,9 +18,12 @@ namespace FlashCamCard.Android
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			//Button button = FindViewById<Button>(Resource.Id.myButton);
+			ImageButton button = FindViewById<ImageButton>(Resource.Id.imgBtnCam);
 
-			//button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+			button.Click += delegate {
+
+
+			};
 		}
 	}
 }
