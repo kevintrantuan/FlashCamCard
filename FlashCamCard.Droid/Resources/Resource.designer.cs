@@ -66,14 +66,17 @@ namespace FlashCamCard.Droid
 			// aapt resource value: 0x7f060007
 			public const int btnLearn = 2131099655;
 			
-			// aapt resource value: 0x7f060008
-			public const int cardList = 2131099656;
+			// aapt resource value: 0x7f060009
+			public const int cardList = 2131099657;
 			
 			// aapt resource value: 0x7f060004
 			public const int editDefinition = 2131099652;
 			
 			// aapt resource value: 0x7f060003
 			public const int editVoc = 2131099651;
+			
+			// aapt resource value: 0x7f060008
+			public const int imageCamView = 2131099656;
 			
 			// aapt resource value: 0x7f060005
 			public const int imgBtnCam = 2131099653;
