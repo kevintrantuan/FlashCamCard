@@ -1,13 +1,14 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Content;
 
 namespace FlashCamCard.Android
 {
 	[Activity(Label = "FlashCamCard.Android", MainLauncher = true, Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
+		Button btnLearn;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -18,12 +19,18 @@ namespace FlashCamCard.Android
 
 			// Get our button from the layout resource,
 			// and attach an event to it
+			btnLearn = FindViewById<Button>(FlashCamCard.Android.Resource.Id.btnLearn);
+
 			ImageButton button = FindViewById<ImageButton>(Resource.Id.imgBtnCam);
 
-			button.Click += delegate {
+			btnLearn.Click += btnLearn_Click;
 
+		}
 
-			};
+		void btnLearn_Click (object sender, System.EventArgs e)
+		{
+			var intent = new Intent(this, typeof(CardActivity));
+			StartActivity(intent);
 		}
 	}
 }
