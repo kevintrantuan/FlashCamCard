@@ -19,11 +19,14 @@ namespace FlashCamCard.Droid
 		public static File _dir;
 		public static Bitmap bitmap;
 	}
-	[Activity(Label = "FlashCamCard.Droid", MainLauncher = true, Icon = "@mipmap/icon")]
+	[Activity(Label = "Flash Cam Card App", MainLauncher = true, Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
 		Button buttonCardList;
 		ImageButton imgBtnCamera;
+		ImageButton imgBtnGallery;
+
+		public static readonly int PickImageId = 1000;
 
 		private ImageView _imageView;
 
@@ -36,8 +39,11 @@ namespace FlashCamCard.Droid
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			buttonCardList = FindViewById<Button>(FlashCamCard.Droid.Resource.Id.btnCardList);
+			buttonCardList = FindViewById<Button>(Resource.Id.btnCardList);
 			buttonCardList.Click += buttonCardList_Click;
+
+			imgBtnGallery = FindViewById<ImageButton>(Resource.Id.imgBtnGallery);
+			imgBtnGallery.Click += imgBtnGallery_Click;
 
 			//ImageButton button = FindViewById<ImageButton>(Resource.Id.imgBtnCam);
 
@@ -85,34 +91,51 @@ namespace FlashCamCard.Droid
 		{
 			base.OnActivityResult(requestCode, resultCode, data);
 
-			// Make it available in the gallery
-
-			Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-			Uri contentUri = Uri.FromFile(App._file);
-			mediaScanIntent.SetData(contentUri);
-			SendBroadcast(mediaScanIntent);
-
-			// Display in ImageView. We will resize the bitmap to fit the display.
-			// Loading the full sized image will consume to much memory
-			// and cause the application to crash.
-
-			int height = Resources.DisplayMetrics.HeightPixels;
-			int width = _imageView.Height;
-			App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
-			if (App.bitmap != null)
+			if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
 			{
-				_imageView.SetImageBitmap(App.bitmap);
-				App.bitmap = null;
+				Uri uri = data.Data;
+				_imageView.SetImageURI(uri);
+			}
+			else
+			{
+
+				// Make it available in the gallery
+
+				Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
+				Uri contentUri = Uri.FromFile(App._file);
+				mediaScanIntent.SetData(contentUri);
+				SendBroadcast(mediaScanIntent);
+
+				// Display in ImageView. We will resize the bitmap to fit the display.
+				// Loading the full sized image will consume to much memory
+				// and cause the application to crash.
+
+				int height = Resources.DisplayMetrics.HeightPixels;
+				int width = _imageView.Height;
+				App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
+				if (App.bitmap != null)
+				{
+					_imageView.SetImageBitmap(App.bitmap);
+					App.bitmap = null;
+				}
+
+				// Dispose of the Java side bitmap.
+				GC.Collect();
 			}
 
-			// Dispose of the Java side bitmap.
-			GC.Collect();
 		}
 
-		void buttonCardList_Click (object sender, System.EventArgs e)
+		void buttonCardList_Click(object sender, System.EventArgs e)
 		{
 			var intent = new Intent(this, typeof(CardListActivity));
 			StartActivity(intent);
+		}
+		void imgBtnGallery_Click(object sender, System.EventArgs e)
+		{
+			Intent = new Intent();
+			Intent.SetType("image/*");
+			Intent.SetAction(Intent.ActionGetContent);
+			StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
 		}
 	}
 }

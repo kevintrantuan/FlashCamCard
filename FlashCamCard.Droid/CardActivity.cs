@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace FlashCamCard.Droid
 {
-	[Activity(Label = "CardActivity")]
+	[Activity(Label = "Learning Card")]
 	public class CardActivity : Activity
 	{
 		TextView vocTextView;
