@@ -34,7 +34,11 @@ namespace FlashCamCard.Droid
 			var data = cards[position];
 
 			vocLabel.Text = data.voc;
-			defintionLabel.Text = data.defintion.Substring(0, 20) + "...";
+
+			if (data.defintion.Length > 20)
+			{
+				defintionLabel.Text = data.defintion.Substring(0, 20) + "...";
+			}
 			vocPhotoImageView.SetImageResource(Resource.Drawable.ic_photo_library_white_48dp);
 
 			return view;

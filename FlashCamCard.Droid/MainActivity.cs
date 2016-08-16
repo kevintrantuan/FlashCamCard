@@ -10,6 +10,7 @@ using Android.Widget;
 using Java.IO;
 using Environment = Android.OS.Environment;
 using Uri = Android.Net.Uri;
+using Newtonsoft.Json;
 
 namespace FlashCamCard.Droid
 {
@@ -24,15 +25,14 @@ namespace FlashCamCard.Droid
 	{
 		Button buttonCardList, buttonAddVoc;
 		ImageButton imgBtnCamera, imgBtnGallery;
-
-		private static Dictionary<string, string> mItems;
+		EditText editVoc, editDefintion;
 
 		public static readonly int PickImageId = 1000;
 
 		private ImageView _imageView;
+		string strPhotoName;
 
-
-		List<Card> cardList;
+		static List<Card> cardList;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -52,6 +52,9 @@ namespace FlashCamCard.Droid
 			buttonAddVoc = FindViewById<Button>(Resource.Id.btnAddVoc);
 			buttonAddVoc.Click += buttonAddVoc_Click;
 
+			editVoc = FindViewById<EditText>(Resource.Id.editVoc);
+			editDefintion = FindViewById<EditText>(Resource.Id.editDefinition);
+
 			//ImageButton button = FindViewById<ImageButton>(Resource.Id.imgBtnCam);
 
 
@@ -61,31 +64,11 @@ namespace FlashCamCard.Droid
 
 				imgBtnCamera = FindViewById<ImageButton>(Resource.Id.imgBtnCam);
 				imgBtnCamera.Click += TakeAPicture;
-				_imageView = FindViewById<ImageView>(Resource.Id.imageCamView);
+				_imageView = FindViewById<ImageView>(Resource.Id.imagePhotoView);
 
 			}
 
-			cardList = new List<Card>();
-			cardList.Add(new Card()
-			{
-				voc = "pragmatics",
-				defintion = "solving problems in a practical and sensible way rather than by having fixed ideas or theories",
-				imagefile = "pragmatics.jpg"
-			});
-			cardList.Add(new Card()
-			{
-				voc = "sprint",
-				defintion = "a race in which the people taking part run, swim, etc. very fast over a short distance",
-				imagefile = "sprint.jpg"
-			});
-			cardList.Add(new Card()
-			{
-				voc = "prosperity",
-				defintion = "the state of being successful and having a lot of money",
-				imagefile = "prosperity.jpg"
-			});
-
-
+			buildSampleVoc();
 
 		}
 
@@ -118,11 +101,12 @@ namespace FlashCamCard.Droid
 
 		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
+			Uri uri;
 			base.OnActivityResult(requestCode, resultCode, data);
 
 			if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
 			{
-				Uri uri = data.Data;
+				uri = data.Data;
 				_imageView.SetImageURI(uri);
 			}
 			else
@@ -131,8 +115,8 @@ namespace FlashCamCard.Droid
 				// Make it available in the gallery
 
 				Intent mediaScanIntent = new Intent(Intent.ActionMediaScannerScanFile);
-				Uri contentUri = Uri.FromFile(App._file);
-				mediaScanIntent.SetData(contentUri);
+				uri = Uri.FromFile(App._file);
+				mediaScanIntent.SetData(uri);
 				SendBroadcast(mediaScanIntent);
 
 				// Display in ImageView. We will resize the bitmap to fit the display.
@@ -144,6 +128,7 @@ namespace FlashCamCard.Droid
 				App.bitmap = App._file.Path.LoadAndResizeBitmap(width, height);
 				if (App.bitmap != null)
 				{
+					
 					_imageView.SetImageBitmap(App.bitmap);
 					App.bitmap = null;
 				}
@@ -151,12 +136,15 @@ namespace FlashCamCard.Droid
 				// Dispose of the Java side bitmap.
 				GC.Collect();
 			}
+			strPhotoName = uri.ToString();
 
 		}
 
 		void buttonCardList_Click(object sender, System.EventArgs e)
 		{
 			var intent = new Intent(this, typeof(CardListActivity));
+
+			intent.PutExtra("cardlist", Newtonsoft.Json.JsonConvert.SerializeObject(cardList));
 			StartActivity(intent);
 		}
 		void imgBtnGallery_Click(object sender, System.EventArgs e)
@@ -167,10 +155,50 @@ namespace FlashCamCard.Droid
 			StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
 		}
 		void buttonAddVoc_Click(object sender, System.EventArgs e) {
-			mItems.Add("voc","tuvung");
-			mItems.Add("definition","dinhnghia");
-			mItems.Add("image", "hinhanh");
+			if (editVoc.Text.Length > 0)
+			{
+				cardList.Add(new Card()
+				{
+					voc = editVoc.Text,
+					defintion = editDefintion.Text,
+					imagefile = strPhotoName
+				});
+
+				editVoc.Text = string.Empty;
+				editDefintion.Text = string.Empty;
+				_imageView.SetImageResource(Resource.Drawable.ic_camera_enhance_white_48dp);
+			}
 		}
+
+		void buildSampleVoc()
+		{
+			cardList = new List<Card>();
+			cardList.Add(new Card()
+			{
+				voc = "pragmatics",
+				defintion = "solving problems in a practical and sensible way rather than by having fixed ideas or theories",
+				imagefile = "pragmatics.jpg"
+			});
+			cardList.Add(new Card()
+			{
+				voc = "sprint",
+				defintion = "a race in which the people taking part run, swim, etc. very fast over a short distance",
+				imagefile = "sprint.jpg"
+			});
+			cardList.Add(new Card()
+			{
+				voc = "prosperity",
+				defintion = "the state of being successful and having a lot of money",
+				imagefile = "prosperity.jpg"
+			});
+		}
+	}
+	public class Card
+	{
+		public int id;
+		public string voc;
+		public string defintion;
+		public string imagefile;
 	}
 }
 
