@@ -10,32 +10,55 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.Collections.Generic;
 
 namespace FlashCamCard.Droid
 {
 	[Activity(Label = "Learning Card List")]
-	public class CardListActivity : Activity
+	public class CardListActivity : ListActivity
 	{
-		string voc;
-		private List<string> mItems;
-		private ListView mListView;
+
+		List<Card> cardList;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			// Create your application here
-			SetContentView(Resource.Layout.CardList);
+			//SetContentView(Resource.Layout.CardList);
 
-			mListView = FindViewById<ListView>(Resource.Id.cardList);
-			mItems = new List<string>();
-			mItems.Add("voc");
-			mItems.Add("definition");
-			mItems.Add("image");
-			ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, mItems);
-			mListView.Adapter = adapter;
+			cardList = new List<Card>();
+			cardList.Add(new Card()
+			{
+				voc = "pragmatics",
+				defintion = "solving problems in a practical and sensible way rather than by having fixed ideas or theories",
+				imagefile = "pragmatics.jpg"
+			});
+			cardList.Add(new Card()
+			{
+				voc = "sprint",
+				defintion = "a race in which the people taking part run, swim, etc. very fast over a short distance",
+				imagefile = "sprint.jpg"
+			});
+			cardList.Add(new Card()
+			{
+				voc = "prosperity",
+				defintion = "the state of being successful and having a lot of money",
+				imagefile = "prosperity.jpg"
+			});
+
+			var listAdapter = new CardsAdapter(this);
+			listAdapter.cards = cardList;
+			ListAdapter = listAdapter;
 
 		}
+	}
+	public class Card
+	{
+		public int id;
+		public string voc;
+		public string defintion;
+		public string imagefile;
 	}
 }
 

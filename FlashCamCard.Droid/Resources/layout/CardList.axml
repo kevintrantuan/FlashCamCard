@@ -8,6 +8,6 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cardList"
+        android:id="@+id/cardListView"
         android:layout_marginTop="0.0dp" />
 </LinearLayout>

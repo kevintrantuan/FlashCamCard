@@ -22,13 +22,17 @@ namespace FlashCamCard.Droid
 	[Activity(Label = "Flash Cam Card App", MainLauncher = true, Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
-		Button buttonCardList;
-		ImageButton imgBtnCamera;
-		ImageButton imgBtnGallery;
+		Button buttonCardList, buttonAddVoc;
+		ImageButton imgBtnCamera, imgBtnGallery;
+
+		private static Dictionary<string, string> mItems;
 
 		public static readonly int PickImageId = 1000;
 
 		private ImageView _imageView;
+
+
+		List<Card> cardList;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -45,6 +49,9 @@ namespace FlashCamCard.Droid
 			imgBtnGallery = FindViewById<ImageButton>(Resource.Id.imgBtnGallery);
 			imgBtnGallery.Click += imgBtnGallery_Click;
 
+			buttonAddVoc = FindViewById<Button>(Resource.Id.btnAddVoc);
+			buttonAddVoc.Click += buttonAddVoc_Click;
+
 			//ImageButton button = FindViewById<ImageButton>(Resource.Id.imgBtnCam);
 
 
@@ -57,6 +64,28 @@ namespace FlashCamCard.Droid
 				_imageView = FindViewById<ImageView>(Resource.Id.imageCamView);
 
 			}
+
+			cardList = new List<Card>();
+			cardList.Add(new Card()
+			{
+				voc = "pragmatics",
+				defintion = "solving problems in a practical and sensible way rather than by having fixed ideas or theories",
+				imagefile = "pragmatics.jpg"
+			});
+			cardList.Add(new Card()
+			{
+				voc = "sprint",
+				defintion = "a race in which the people taking part run, swim, etc. very fast over a short distance",
+				imagefile = "sprint.jpg"
+			});
+			cardList.Add(new Card()
+			{
+				voc = "prosperity",
+				defintion = "the state of being successful and having a lot of money",
+				imagefile = "prosperity.jpg"
+			});
+
+
 
 		}
 
@@ -136,6 +165,11 @@ namespace FlashCamCard.Droid
 			Intent.SetType("image/*");
 			Intent.SetAction(Intent.ActionGetContent);
 			StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
+		}
+		void buttonAddVoc_Click(object sender, System.EventArgs e) {
+			mItems.Add("voc","tuvung");
+			mItems.Add("definition","dinhnghia");
+			mItems.Add("image", "hinhanh");
 		}
 	}
 }
