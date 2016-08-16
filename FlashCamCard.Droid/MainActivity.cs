@@ -22,11 +22,8 @@ namespace FlashCamCard.Droid
 	[Activity(Label = "FlashCamCard.Droid", MainLauncher = true, Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
-		Button btnLearn;
+		Button buttonCardList;
 		ImageButton imgBtnCamera;
-		string voc;
-		private List<string> mItems;
-		private ListView mListView;
 
 		private ImageView _imageView;
 
@@ -39,8 +36,8 @@ namespace FlashCamCard.Droid
 
 			// Get our button from the layout resource,
 			// and attach an event to it
-			btnLearn = FindViewById<Button>(FlashCamCard.Droid.Resource.Id.btnLearn);
-			btnLearn.Click += btnLearn_Click;
+			buttonCardList = FindViewById<Button>(FlashCamCard.Droid.Resource.Id.btnCardList);
+			buttonCardList.Click += buttonCardList_Click;
 
 			//ImageButton button = FindViewById<ImageButton>(Resource.Id.imgBtnCam);
 
@@ -54,15 +51,6 @@ namespace FlashCamCard.Droid
 				_imageView = FindViewById<ImageView>(Resource.Id.imageCamView);
 
 			}
-
-
-			mListView = FindViewById<ListView>(Resource.Id.cardList);
-			mItems = new List<string>();
-			mItems.Add("voc");
-			mItems.Add("definition");
-			mItems.Add("image");
-			ArrayAdapter<string> adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, mItems);
-			mListView.Adapter = adapter;
 
 		}
 
@@ -121,11 +109,9 @@ namespace FlashCamCard.Droid
 			GC.Collect();
 		}
 
-		void btnLearn_Click (object sender, System.EventArgs e)
+		void buttonCardList_Click (object sender, System.EventArgs e)
 		{
-			var intent = new Intent(this, typeof(CardActivity));
-			voc = "Tuan";
-			intent.PutExtra("card",voc);
+			var intent = new Intent(this, typeof(CardListActivity));
 			StartActivity(intent);
 		}
 	}

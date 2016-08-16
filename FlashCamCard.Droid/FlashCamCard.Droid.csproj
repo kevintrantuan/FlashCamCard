@@ -48,6 +48,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CardActivity.cs" />
     <Compile Include="BitmapHelpers.cs" />
+    <Compile Include="CardListActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -69,6 +70,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_camera_enhance_white_48dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_camera_enhance_white_48dp.png" />
     <AndroidResource Include="Resources\layout\Card.axml" />
+    <AndroidResource Include="Resources\layout\CardList.axml" />
+    <AndroidResource Include="Resources\drawable\ic_photo_library_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_photo_library_white_48dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

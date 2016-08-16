@@ -5,74 +5,74 @@
     android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout1">
-        <LinearLayout
-            android:orientation="vertical"
-            android:minWidth="25px"
-            android:minHeight="25px"
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textVoc"
+            android:text="Vocabulary" />
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout2">
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/editVoc" />
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textVoc"
+            android:text="Definition" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editDefinition" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+            <ImageButton
+                android:src="@drawable/ic_camera_enhance_white_48dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/imgBtnCam" />
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="25dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/imgBtnGallery"
+                android:src="@drawable/ic_photo_library_white_48dp" />
+            <Button
+                android:id="@+id/btnAddVoc"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/add_voc"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="25dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+            <ImageView
+                android:src="@android:drawable/ic_menu_gallery"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/textVoc"
-                android:text="Vocabulary" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editVoc" />
-            <TextView
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/textVoc"
-                android:text="Definition" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editDefinition" />
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom">
-                <ImageButton
-                    android:src="@drawable/ic_camera_enhance_white_48dp"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_alignParentLeft="true"
-                    android:id="@+id/imgBtnCam" />
-                <Button
-                    android:id="@+id/btnAddVoc"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="@string/add_voc"
-                    android:layout_centerInParent="true"
-                    android:layout_weight="1" />
-                <Button
-                    android:id="@+id/btnLearn"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="@string/learn"
-                    android:layout_alignParentRight="true"
-                    android:layout_weight="1" />
-            </RelativeLayout>
-        </LinearLayout>
+                android:layout_height="100dp"
+                android:id="@+id/imageCamView"
+                android:layout_marginBottom="217.5dp" />
+            <Button
+                android:id="@+id/btnCardList"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/card_list"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="25dp" />
+        </RelativeLayout>
     </LinearLayout>
-    <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
-        android:layout_width="match_parent"
-        android:layout_height="145.0dp"
-        android:id="@+id/imageCamView" />
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cardList"
-        android:layout_marginTop="0.0dp" />
 </LinearLayout>
