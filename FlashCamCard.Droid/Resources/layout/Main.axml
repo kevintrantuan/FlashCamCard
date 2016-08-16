@@ -1,78 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout1">
-        <TextView
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/textVoc"
-            android:text="Vocabulary" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editVoc" />
-        <TextView
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/textVoc"
-            android:text="Definition" />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editDefinition" />
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top">
-            <ImageButton
-                android:src="@drawable/ic_camera_enhance_white_48dp"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:layout_alignParentLeft="true"
-                android:id="@+id/imgBtnCam" />
-            <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="25dp"
-                android:layout_centerInParent="true"
-                android:id="@+id/imgBtnGallery"
-                android:src="@drawable/ic_photo_library_white_48dp" />
-            <Button
-                android:id="@+id/btnAddVoc"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/add_voc"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="25dp" />
-        </RelativeLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom">
             <ImageView
                 android:src="@android:drawable/ic_menu_gallery"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imagePhotoView" />
+        </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1">
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imagePhotoView"
-                android:layout_marginBottom="217.5dp" />
-            <Button
-                android:id="@+id/btnCardList"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/card_list"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="25dp"
-                android:layout_marginBottom="25dp" />
-        </RelativeLayout>
+                android:id="@+id/textVoc"
+                android:text="Vocabulary" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editVoc" />
+            <TextView
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textVoc"
+                android:text="Definition" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editDefinition" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top">
+                <ImageButton
+                    android:src="@drawable/ic_camera_enhance_white_48dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/imgBtnCam" />
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/imgBtnGallery"
+                    android:src="@drawable/ic_photo_library_white_48dp" />
+                <Button
+                    android:id="@+id/btnAddVoc"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:text="@string/add_voc"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="25dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom">
+                <Button
+                    android:id="@+id/btnCardList"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:text="@string/card_list"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="25dp" />
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
