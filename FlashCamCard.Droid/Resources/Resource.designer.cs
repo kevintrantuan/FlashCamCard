@@ -63,8 +63,8 @@ namespace FlashCamCard.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f06000b
-			public const int btnAddVoc = 2131099659;
+			// aapt resource value: 0x7f06000a
+			public const int btnAddVoc = 2131099658;
 			
 			// aapt resource value: 0x7f06000c
 			public const int btnCardList = 2131099660;
@@ -72,23 +72,23 @@ namespace FlashCamCard.Droid
 			// aapt resource value: 0x7f060005
 			public const int cardListView = 2131099653;
 			
-			// aapt resource value: 0x7f060008
-			public const int editDefinition = 2131099656;
-			
 			// aapt resource value: 0x7f060007
-			public const int editVoc = 2131099655;
+			public const int editDefinition = 2131099655;
 			
 			// aapt resource value: 0x7f060006
-			public const int imagePhotoView = 2131099654;
+			public const int editVoc = 2131099654;
+			
+			// aapt resource value: 0x7f06000b
+			public const int imagePhotoView = 2131099659;
 			
 			// aapt resource value: 0x7f060004
 			public const int imageViewVocPhoto = 2131099652;
 			
-			// aapt resource value: 0x7f060009
-			public const int imgBtnCam = 2131099657;
+			// aapt resource value: 0x7f060008
+			public const int imgBtnCam = 2131099656;
 			
-			// aapt resource value: 0x7f06000a
-			public const int imgBtnGallery = 2131099658;
+			// aapt resource value: 0x7f060009
+			public const int imgBtnGallery = 2131099657;
 			
 			// aapt resource value: 0x7f060001
 			public const int linearLayout1 = 2131099649;
