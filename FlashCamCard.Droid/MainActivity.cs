@@ -61,7 +61,7 @@ namespace FlashCamCard.Droid
 
 				imgBtnCamera = FindViewById<ImageButton>(Resource.Id.imgBtnCam);
 				imgBtnCamera.Click += TakeAPicture;
-				_imageView = FindViewById<ImageView>(Resource.Id.imagePhotoView);
+				_imageView = FindViewById<ImageView>(Resource.Id.imageCamView);
 
 			}
 

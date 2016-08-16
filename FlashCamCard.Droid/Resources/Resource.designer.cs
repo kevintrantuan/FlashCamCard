@@ -79,7 +79,7 @@ namespace FlashCamCard.Droid
 			public const int editVoc = 2131099654;
 			
 			// aapt resource value: 0x7f06000b
-			public const int imagePhotoView = 2131099659;
+			public const int imageCamView = 2131099659;
 			
 			// aapt resource value: 0x7f060004
 			public const int imageViewVocPhoto = 2131099652;

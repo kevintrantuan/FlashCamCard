@@ -34,7 +34,11 @@ namespace FlashCamCard.Droid
 			var data = cards[position];
 
 			vocLabel.Text = data.voc;
+<<<<<<< HEAD
 			defintionLabel.Text = data.defintion;//.Substring(0, 20) + "...";
+=======
+			defintionLabel.Text = data.defintion.Substring(0, 20) + "...";
+>>>>>>> parent of 9fbd7c7... Jason transfer between activity
 			vocPhotoImageView.SetImageResource(Resource.Drawable.ic_photo_library_white_48dp);
 
 			return view;
