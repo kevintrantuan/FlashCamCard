@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background2">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -62,7 +63,7 @@
                 android:src="@android:drawable/ic_menu_gallery"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/imageCamView"
+                android:id="@+id/imagePhotoView"
                 android:layout_marginBottom="217.5dp" />
             <Button
                 android:id="@+id/btnCardList"

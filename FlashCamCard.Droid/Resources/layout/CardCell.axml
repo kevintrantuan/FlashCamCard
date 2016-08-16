@@ -9,29 +9,19 @@
         android:layout_height="match_parent"
         android:id="@+id/linearLayout1">
         <TextView
-            android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_width="150dp"
-            android:layout_height="30dp"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
             android:id="@+id/textViewVoc" />
         <TextView
-            android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="200dp"
-<<<<<<< HEAD
             android:layout_height="36dp"
-            android:id="@+id/textViewDefinition"
-            android:ellipsize="none"
-            android:scrollHorizontally="true"
-            android:singleLine="true" />
-=======
-            android:layout_height="30dp"
             android:id="@+id/textViewDefinition" />
->>>>>>> parent of 9fbd7c7... Jason transfer between activity
         <ImageView
             android:src="@android:drawable/ic_menu_gallery"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:id="@+id/imageViewVocPhoto" />
     </LinearLayout>
 </LinearLayout>

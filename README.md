@@ -6,4 +6,5 @@ Van Tran
 Xamarin Android is interesting and native.
 Tested with Android Player with API 23
 Galaxy Note 4 with API 23
+--submit---
 

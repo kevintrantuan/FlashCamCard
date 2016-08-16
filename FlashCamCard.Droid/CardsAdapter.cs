@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Android.App;
+using Android.Graphics;
+using Android.Graphics.Drawables;
 using Android.Widget;
+using Java.IO;
+using Environment = Android.OS.Environment;
+using Uri = Android.Net.Uri;
 
 namespace FlashCamCard.Droid
 {
@@ -34,15 +39,20 @@ namespace FlashCamCard.Droid
 			var data = cards[position];
 
 			vocLabel.Text = data.voc;
-<<<<<<< HEAD
-			defintionLabel.Text = data.defintion;//.Substring(0, 20) + "...";
-=======
-			defintionLabel.Text = data.defintion.Substring(0, 20) + "...";
->>>>>>> parent of 9fbd7c7... Jason transfer between activity
-			vocPhotoImageView.SetImageResource(Resource.Drawable.ic_photo_library_white_48dp);
 
+			if (data.defintion.Length > 20)
+			{
+				defintionLabel.Text = data.defintion.Substring(0, 20) + "...";
+			}
+			if (data.imagefile.Length > 0)
+			{
+				vocPhotoImageView.SetImageURI(Uri.Parse(data.imagefile));
+			}
+			else
+			{
+				vocPhotoImageView.SetImageResource(Resource.Drawable.ic_photo_library_white_48dp);
+			}
 			return view;
-
 
 		}
 

@@ -10,6 +10,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.IO;
+using Environment = Android.OS.Environment;
+using Uri = Android.Net.Uri;
 
 namespace FlashCamCard.Droid
 {
@@ -17,6 +20,7 @@ namespace FlashCamCard.Droid
 	public class CardActivity : Activity
 	{
 		TextView vocTextView;
+		ImageView vocImageFileName;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -24,8 +28,14 @@ namespace FlashCamCard.Droid
 			// Create your application here
 			SetContentView(Resource.Layout.Card);
 			vocTextView = FindViewById<TextView>(Resource.Id.textVoc);
-			string strVoc = Intent.Extras.GetString("card");
-			vocTextView.Text = strVoc;
+			vocImageFileName = FindViewById<ImageView>(Resource.Id.imagePhotoView);
+
+			IList<string> card = Intent.Extras.GetStringArrayList("card");
+			vocTextView.Text = card[1];
+			if (card[2] != null)
+			{
+				vocImageFileName.SetImageURI(Uri.Parse(card[2]));
+			}
 		}
 	}
 }
